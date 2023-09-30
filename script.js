@@ -20,20 +20,31 @@ function curses() {
 
     const list = document.querySelector(".ul")
 
-    let newLi =''
+    let newList = ''
 
-    list.innerHTML =
-
-    pack.array.forEach(product => {
-        `
-        <li>
-        <img src=${product.src}>
-        <p>${product.name}</p>
-        <p>R$ ${product.value}</p>
-        </li>
-
-        `  
+    pack.forEach(product => {
+        newList += `
+    <li>
+      <img src=${product.src}>
+      <p>${product.name}</p>
+      <p>R$ ${product.value}</p>
+    </li>
+           `
     });
 
-        
+    list.innerHTML = newList
+
 }
+function filter() {
+
+}
+const item = pack.map(product => {
+
+    const newPrice = {
+product.value
+
+    }
+})
+
+
+console.log(pack)

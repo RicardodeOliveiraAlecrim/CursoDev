@@ -1,4 +1,4 @@
-const packs = [
+const pack = [
 
     {name: 'frontEnd', value: 1200.00, begginer: true, src:'./assets/front.png' },
     {name: 'fireBase', value: 1300.00, begginer: false, src:'./assets/firebase.png' },
