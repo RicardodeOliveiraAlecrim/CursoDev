@@ -2,49 +2,69 @@ const discount = document.querySelector("#discount")
 const integration = document.querySelector("#integration")
 const discountPrice = document.querySelector("#discountPrice")
 const only = document.querySelector("#only")
+const select = document.querySelector (".select")
+const buttonCurses = document.querySelector(".start")
 
+function curses(productsArray) {
 
+  discount.innerHTML = ' Damos um desconto de 10% para voçê começar agora.'
 
-function curses() {
+  discountPrice.innerHTML = 'Desconto'
 
-    discount.innerHTML = ' Damos um desconto de 10% para voçê começar agora.'
-
-    discountPrice.innerHTML = 'Desconto'
-
-    integration.innerHTML = ` Se junte aos 40 milhões de alunos que aprendem com o DevCursos
+  integration.innerHTML = ` Se junte aos 40 milhões de alunos que aprendem com o DevCursos
     com garantia de 30 dias e um desconto de 10 %.Encontre o instrutor ideal para você.
      Qualquer tema , nível ou idioma.Acesso vitalício. `
 
+  only.innerHTML = 'Tudo por apenas...'
+  
+  select.style.opacity = 1
 
-    only.innerHTML = 'Tudo por apenas...'
+  const list = document.querySelector(".ul")
 
-    const list = document.querySelector(".ul")
+  let newList = ''
 
-    let newList = ''
-
-    pack.forEach(product => {
-        newList += `
+  productsArray.forEach(product => {
+    
+    newList += `
     <li>
       <img src=${product.src}>
       <p>${product.name}</p>
       <p>R$ ${product.value}</p>
     </li>
            `
-    });
+  });
 
-    list.innerHTML = newList
+  list.innerHTML = newList
 
 }
+
 function filter() {
 
+  const newPrice = pack.map(product => ({
+    ...product,//Spread Operator esparrama o array e altera só o necessário "..."
+    value: product.value * 0.9,
+
+  }))
+
+  curses(newPrice)
 }
-const item = pack.map(product => {
 
-    const newPrice = {
-product.value
+function reduced() {
 
-    }
-})
+  const total = pack.reduce((acc,product)=> {
 
 
-console.log(pack)
+
+  },0)
+  
+
+}
+
+
+
+
+
+
+
+//arrowfunction para parametrizar uma função ao clicar
+buttonCurses.addEventListener('click',()=>curses(pack))

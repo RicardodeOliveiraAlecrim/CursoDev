@@ -38,7 +38,7 @@ h1 {
 }
 
 navigation img {
-    width: 75vw;
+    width: 50vw;
     height: auto;
     display: block;
     margin-left: auto;
@@ -79,6 +79,11 @@ button:active {
 
 .select{
     opacity: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #252729;
+    border-width: 0;
+
 }
 
 .opacity{
