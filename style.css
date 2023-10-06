@@ -52,6 +52,12 @@ navigation p {
     
 } 
 
+#totalPrice {
+    text-align: center;
+    color: #292929;
+    font-size: 15px ;
+}
+
 .back {
     width: 25vw;
 }

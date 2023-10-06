@@ -1,9 +1,12 @@
-const discount = document.querySelector("#discount")
+const totalDiscount = document.querySelector("totalDiscount")
 const integration = document.querySelector("#integration")
 const discountPrice = document.querySelector("#discountPrice")
 const only = document.querySelector("#only")
-const select = document.querySelector (".select")
+const select = document.querySelector(".select")
+const totalPrice = document.querySelector("#totalPrice")
 const buttonCurses = document.querySelector(".start")
+
+
 
 function curses(productsArray) {
 
@@ -16,7 +19,7 @@ function curses(productsArray) {
      Qualquer tema , nível ou idioma.Acesso vitalício. `
 
   only.innerHTML = 'Tudo por apenas...'
-  
+
   select.style.opacity = 1
 
   const list = document.querySelector(".ul")
@@ -24,12 +27,12 @@ function curses(productsArray) {
   let newList = ''
 
   productsArray.forEach(product => {
-    
+
     newList += `
     <li>
       <img src=${product.src}>
       <p>${product.name}</p>
-      <p>R$ ${product.value}</p>
+      <p>R$ ${product.value.toFixed(2)}</p>
     </li>
            `
   });
@@ -37,6 +40,8 @@ function curses(productsArray) {
   list.innerHTML = newList
 
 }
+
+
 
 function filter() {
 
@@ -47,17 +52,20 @@ function filter() {
   }))
 
   curses(newPrice)
+
 }
+
+
 
 function reduced() {
 
-  const total = pack.reduce((acc,product)=> {
-
-
-
-  },0)
+const total = pack.reduce((acc, curr) => acc + curr.value, 0)
   
 
+  totalPrice.innerHTML = total.toFixed(2)
+
+  totalDiscount.innerHTML = total.toFixed(2)
+  
 }
 
 
@@ -67,4 +75,4 @@ function reduced() {
 
 
 //arrowfunction para parametrizar uma função ao clicar
-buttonCurses.addEventListener('click',()=>curses(pack))
+buttonCurses.addEventListener('click', () => curses(pack))
