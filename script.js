@@ -1,12 +1,21 @@
-const totalDiscount = document.querySelector("totalDiscount")
+const totalDiscount = document.querySelector("#totalDiscount")
 const integration = document.querySelector("#integration")
 const discountPrice = document.querySelector("#discountPrice")
 const only = document.querySelector("#only")
 const select = document.querySelector(".select")
 const totalPrice = document.querySelector("#totalPrice")
 const buttonCurses = document.querySelector(".start")
+const initial = document.querySelector("#initial")
 
 
+function currency(value) {
+
+  return newValue = value.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+  
+}
 
 function curses(productsArray) {
 
@@ -20,6 +29,8 @@ function curses(productsArray) {
 
   only.innerHTML = 'Tudo por apenas...'
 
+  initial.innerHTML = 'Iniciante'
+
   select.style.opacity = 1
 
   const list = document.querySelector(".ul")
@@ -32,7 +43,7 @@ function curses(productsArray) {
     <li>
       <img src=${product.src}>
       <p>${product.name}</p>
-      <p>R$ ${product.value.toFixed(2)}</p>
+      <p>${currency(product.value)}</p>
     </li>
            `
   });
@@ -42,8 +53,16 @@ function curses(productsArray) {
 }
 
 
+function reduced() {
 
-function filter() {
+  const total = pack.reduce((acc, curr) => acc + curr.value, 0)
+
+  totalPrice.innerHTML = ` ${currency(total)}`
+
+}
+
+
+function map() {
 
   const newPrice = pack.map(product => ({
     ...product,//Spread Operator esparrama o array e altera só o necessário "..."
@@ -51,27 +70,28 @@ function filter() {
 
   }))
 
+  const total = pack.reduce((acc, curr) => acc + curr.value, 0) * 0.9
+
+  totalDiscount.innerHTML = ` ${currency(total)}`
+
   curses(newPrice)
 
 }
 
 
+function beggin() {
 
-function reduced() {
+  const begginers = pack.filter(product => product.begginer)
 
-const total = pack.reduce((acc, curr) => acc + curr.value, 0)
-  
+  curses(begginers)
 
-  totalPrice.innerHTML = total.toFixed(2)
+  only.innerHTML = ''
 
-  totalDiscount.innerHTML = total.toFixed(2)
-  
+  totalDiscount.innerHTML = ''
+
+  totalPrice.innerHTML = ''
+
 }
-
-
-
-
-
 
 
 //arrowfunction para parametrizar uma função ao clicar

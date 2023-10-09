@@ -89,9 +89,6 @@ button:active {
     cursor: pointer;
     background-color: #252729;
     border-width: 0;
-
+    
 }
 
-.opacity{
-    opacity: 0;
-}

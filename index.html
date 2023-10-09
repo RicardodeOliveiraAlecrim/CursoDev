@@ -32,14 +32,8 @@
 
             <aside>
                 <button type="button" class="start">Cursos</button>
-
-                <select class="select">
-
-                    <option>Front-End</option>
-
-                    <option>Back-End</option>
-
-                </select>
+              <br>
+               <button type="button" onclick="beggin()" class="select" id="initial"></button>
 
             </aside>
 
@@ -75,9 +69,9 @@
 
                 <button type="button" id="only" onclick="reduced()"></button>
 
-                <p id="totalPrice"></p>
+                <p id="totalPrice" class="article"></p>
 
-                <p class="article" id="totalDiscount"></p>
+               
 
             </aside>
             
@@ -89,8 +83,10 @@
 
             <aside>
 
-                <button type="button" id="discountPrice" onclick=" filter()"></button>
-
+                <button type="button" id="discountPrice" onclick=" map()"></button>
+              
+                 <p class="article" id="totalDiscount"></p>
+              
                 <p class="article" id="discount"></p>
                 
             </aside>
