@@ -92,3 +92,14 @@ button:active {
     
 }
 
+@media screen and (max-width: 1000px) and (orientation: portrait) {
+
+    tooper {
+        display:inline-block;
+        
+    }
+    #logo {
+     margin: 1% 50%;
+     transform: translate(-50%);
+    }
+}
